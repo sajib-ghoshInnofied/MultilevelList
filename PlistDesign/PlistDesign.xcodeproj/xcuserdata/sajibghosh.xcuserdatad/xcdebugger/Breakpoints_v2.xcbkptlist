@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "AA7A4824-E79A-4FDA-A317-E9EAD93913DF"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "89F76C2D-0D6A-4849-B22F-2209358C7C81"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PlistDesign/Modules/Home/ViewModel/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "getChildItemsFor(parent:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "31701EB6-DC06-489C-810B-74A48A071744"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PlistDesign/Modules/Home/ViewModel/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "HomeViewModel"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "832DC8B4-C0EF-4134-9C4B-A2D855458882"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PlistDesign/Modules/Home/Controller/HomeVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "832DC8B4-C0EF-4134-9C4B-A2D855458882 - 51c4c2a79d569610"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PlistDesign.HomeVC.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "PlistDesign"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sajibghosh/Desktop/Test-Sajib/PlistDesign/PlistDesign/Modules/Home/Controller/HomeVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "1124">
+               </Location>
+               <Location
+                  uuid = "832DC8B4-C0EF-4134-9C4B-A2D855458882 - 51c4c2a79d5696de"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PlistDesign.HomeVC.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "PlistDesign"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sajibghosh/Desktop/Test-Sajib/PlistDesign/PlistDesign/Modules/Home/Controller/HomeVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "1164">
+               </Location>
+               <Location
+                  uuid = "832DC8B4-C0EF-4134-9C4B-A2D855458882 - 51c4c2a79d5696de"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PlistDesign.HomeVC.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "PlistDesign"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sajibghosh/Desktop/Test-Sajib/PlistDesign/PlistDesign/Modules/Home/Controller/HomeVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "1124">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FFABF31C-CF44-4295-BC44-9507A5A8AF62"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PlistDesign/Modules/Home/Controller/HomeVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "plistItemTapped(item:location:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FFABF31C-CF44-4295-BC44-9507A5A8AF62 - 3defdef758180df7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PlistDesign.HomeVC.plistItemTapped(item: PlistDesign.Section, location: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "PlistDesign"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sajibghosh/Desktop/Test-Sajib/PlistDesign/PlistDesign/Modules/Home/Controller/HomeVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "204">
+               </Location>
+               <Location
+                  uuid = "FFABF31C-CF44-4295-BC44-9507A5A8AF62 - 3defdef758180df7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PlistDesign.HomeVC.plistItemTapped(item: PlistDesign.Section, location: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "PlistDesign"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sajibghosh/Desktop/Test-Sajib/PlistDesign/PlistDesign/Modules/Home/Controller/HomeVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "308">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "44195FEB-7B82-4E5F-A81A-9C61FC850DC5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PlistDesign/Modules/Home/Controller/HomeVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "plistItemTapped(item:location:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "44195FEB-7B82-4E5F-A81A-9C61FC850DC5 - 3defdef758187210"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PlistDesign.HomeVC.plistItemTapped(item: PlistDesign.Section, location: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "PlistDesign"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sajibghosh/Desktop/Test-Sajib/PlistDesign/PlistDesign/Modules/Home/Controller/HomeVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "384">
+               </Location>
+               <Location
+                  uuid = "44195FEB-7B82-4E5F-A81A-9C61FC850DC5 - 3defdef758187210"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PlistDesign.HomeVC.plistItemTapped(item: PlistDesign.Section, location: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "PlistDesign"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sajibghosh/Desktop/Test-Sajib/PlistDesign/PlistDesign/Modules/Home/Controller/HomeVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "520">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "08F32AA6-149D-421D-8AA9-0D2E5F20FF9C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PlistDesign/Modules/Home/Controller/HomeVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "plistItemTapped(item:location:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C1415456-BBDD-4140-A77E-A92A7EDB6ECB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PlistDesign/Modules/Home/Controller/HomeVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "collapseExpandedSections(parent:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3F2740D7-05D4-4073-9307-335A9F8DEA26"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PlistDesign/Modules/Home/Controller/HomeVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "plistItemTapped(item:location:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
