@@ -92,6 +92,7 @@ class Section {
     var sections = [Section]()
     var type: String = ""
     var itemCount: String = ""
+    var valueString = ""
     
     init(isCollapsible: Bool, isOpened: Bool, key: String, level: Int, value: Any, sections: [Section] = [Section]()) {
         self.isCollapsible = isCollapsible
@@ -102,6 +103,7 @@ class Section {
         self.sections = sections
         self.type = getTypeOfValue(val: value)
         self.itemCount = getItemCount(value: value)
+        self.valueString = getValueString(value: value)
     }
     
     func getTypeOfValue(val: Any) -> String {
@@ -131,5 +133,19 @@ class Section {
             count = "(" + "\(val.count)" + " \(item)" + ")"
         }
         return count
+    }
+    
+    func getValueString(value: Any) -> String {
+        var str = ""
+        if let val = value as? Bool {
+            (val == true) ? (str = "YES") : (str = "NO")
+        }else if let val = value as? Int {
+            str = String(val)
+        }else if let val = value as? Double {
+            str = String(val)
+        }else{
+            str = value as? String ?? ""
+        }
+        return str
     }
 }

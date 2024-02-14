@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6D2003D62B361A45000450E0 /* PlistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2003D52B361A45000450E0 /* PlistCell.swift */; };
 		6D2003DA2B36FA7D000450E0 /* PlistHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2003D92B36FA7D000450E0 /* PlistHeaderCell.swift */; };
+		6D2003DC2B377CD9000450E0 /* MockNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2003DB2B377CD9000450E0 /* MockNetwork.swift */; };
 		6DC0AC7F2B346DDF001FDADD /* PlistDesignTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC0AC7E2B346DDF001FDADD /* PlistDesignTests.swift */; };
 		6DC0AC892B346DDF001FDADD /* PlistDesignUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC0AC882B346DDF001FDADD /* PlistDesignUITests.swift */; };
 		6DC0AC8B2B346DDF001FDADD /* PlistDesignUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC0AC8A2B346DDF001FDADD /* PlistDesignUITestsLaunchTests.swift */; };
@@ -46,6 +47,8 @@
 /* Begin PBXFileReference section */
 		6D2003D52B361A45000450E0 /* PlistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistCell.swift; sourceTree = "<group>"; };
 		6D2003D92B36FA7D000450E0 /* PlistHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistHeaderCell.swift; sourceTree = "<group>"; };
+		6D2003DB2B377CD9000450E0 /* MockNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetwork.swift; sourceTree = "<group>"; };
+		6D2003DD2B381742000450E0 /* PlistDesign.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PlistDesign.xctestplan; sourceTree = "<group>"; };
 		6DC0AC642B346DDC001FDADD /* PlistDesign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlistDesign.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DC0AC752B346DDF001FDADD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6DC0AC7A2B346DDF001FDADD /* PlistDesignTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlistDesignTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +98,7 @@
 		6DC0AC5B2B346DDC001FDADD = {
 			isa = PBXGroup;
 			children = (
+				6D2003DD2B381742000450E0 /* PlistDesign.xctestplan */,
 				6DC0AC662B346DDC001FDADD /* PlistDesign */,
 				6DC0AC7D2B346DDF001FDADD /* PlistDesignTests */,
 				6DC0AC872B346DDF001FDADD /* PlistDesignUITests */,
@@ -130,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				6DC0AC7E2B346DDF001FDADD /* PlistDesignTests.swift */,
+				6D2003DB2B377CD9000450E0 /* MockNetwork.swift */,
 			);
 			path = PlistDesignTests;
 			sourceTree = "<group>";
@@ -412,6 +417,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D2003DC2B377CD9000450E0 /* MockNetwork.swift in Sources */,
 				6DC0AC7F2B346DDF001FDADD /* PlistDesignTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -44,6 +44,47 @@ class HomeViewModel {
         return childItems
     }
     
+    func getAllChildItemsFor(parent: Section) -> NSMutableArray {
+        let childItems = NSMutableArray()
+        //childItems.add(parent)
+        //parent.isOpened = true
+        for section in parent.sections {
+            section.isOpened = true
+            childItems.add(section)
+            childItems.addObjects(from: getAllChildItemsFor(parent: section) as! [Any])
+        }
+        return childItems
+    }
+    
+    func getChildItemsForSearch(parent: Section, searchText: String) -> NSMutableArray {
+        let childItems = NSMutableArray()
+        for section in parent.sections {
+            let child = NSMutableArray()
+            section.isOpened = true
+            child.add(section)
+            if section.key.contains(searchText) || section.valueString.contains(searchText) {
+                childItems.addObjects(from: child as! [Any])
+                return childItems
+            }else if !section.isCollapsible {
+                print("Go back....\(section.key)")
+                child.removeAllObjects()
+                childItems.removeAllObjects()
+                collapseChild(childItems: childItems as! [Section])
+                return childItems
+            }else{
+                child.addObjects(from: getChildItemsForSearch(parent: section, searchText: searchText) as! [Any])
+            }
+            childItems.addObjects(from: child as! [Any])
+        }
+        return childItems
+    }
+    
+    func collapseChild(childItems:[Section]) {
+        for childItem in childItems {
+            childItem.isOpened = false
+        }
+    }
+    
     func convertPlistToSections(_ plist: PlistRootModel?) -> [Section] {
         var sections = [Section]()
         if let plist = plist {

@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "0EAD3FBC-33EC-4098-BD52-B49A41CB5810",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:PlistDesign.xcodeproj",
+      "identifier" : "6DC0AC632B346DDC001FDADD",
+      "name" : "PlistDesign"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:PlistDesign.xcodeproj",
+        "identifier" : "6DC0AC792B346DDF001FDADD",
+        "name" : "PlistDesignTests"
+      }
+    },
+    {
+      "enabled" : false,
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:PlistDesign.xcodeproj",
+        "identifier" : "6DC0AC832B346DDF001FDADD",
+        "name" : "PlistDesignUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

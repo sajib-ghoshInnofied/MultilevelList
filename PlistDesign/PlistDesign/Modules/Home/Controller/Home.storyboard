@@ -16,8 +16,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search Plist" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ReU-K1-Jar">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="NH9-rO-A1U"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="gmU-pf-8LO"/>
+                                </connections>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="20" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8Na-Qe-21c">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
@@ -198,17 +208,27 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="kdi-eV-DfW"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Ibw-z0-YsE">
+                                <rect key="frame" x="178" y="420" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="ReU-K1-Jar" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="A5N-zR-oMY"/>
+                            <constraint firstItem="ReU-K1-Jar" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="McO-Sc-pPo"/>
+                            <constraint firstItem="ReU-K1-Jar" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PC2-XZ-Vlh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8Na-Qe-21c" secondAttribute="trailing" id="Ym0-6A-Ycb"/>
-                            <constraint firstItem="8Na-Qe-21c" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="evT-t6-1xF"/>
+                            <constraint firstItem="Ibw-z0-YsE" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="acx-gm-9Im"/>
                             <constraint firstItem="8Na-Qe-21c" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gYM-Lp-H94"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8Na-Qe-21c" secondAttribute="bottom" id="keX-sN-vXc"/>
+                            <constraint firstItem="Ibw-z0-YsE" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="qfV-H8-2Ce"/>
+                            <constraint firstItem="8Na-Qe-21c" firstAttribute="top" secondItem="ReU-K1-Jar" secondAttribute="bottom" id="wqv-lO-JAp"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="Ibw-z0-YsE" id="vHY-ge-KwI"/>
+                        <outlet property="searchBar" destination="ReU-K1-Jar" id="juC-Gd-B6f"/>
                         <outlet property="tableView" destination="8Na-Qe-21c" id="6aO-wl-V5e"/>
                     </connections>
                 </viewController>

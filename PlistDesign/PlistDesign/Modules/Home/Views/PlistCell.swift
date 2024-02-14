@@ -35,15 +35,7 @@ class PlistCell: UITableViewCell {
         lblType.text = section.type
         if !section.isCollapsible {
             imgExpandCollapse.isHidden = true
-            if let val = section.value as? Bool {
-                (val == true) ? (lblCountItem.text = "YES") : (lblCountItem.text = "NO")
-            }else if let val = section.value as? Int {
-                lblCountItem.text = String(val)
-            }else if let val = section.value as? Double {
-                lblCountItem.text = String(val)
-            }else{
-                lblCountItem.text = section.value as? String
-            }
+            lblCountItem.text = section.valueString
         }else{
             imgExpandCollapse.isHidden = false
             lblCountItem.text = section.itemCount

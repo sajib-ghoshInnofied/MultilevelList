@@ -21,19 +21,5 @@
 			</array>
 		</dict>
 	</dict>
-	<key>key1</key>
-	<string>value for key1</string>
-	<key>key2</key>
-	<string>valua for key1</string>
-	<key>Covid1</key>
-	<dict>
-		<key>covid1_key</key>
-		<string>covid1_value</string>
-	</dict>
-	<key>Covid2</key>
-	<dict>
-		<key>covid2_key</key>
-		<string>covid2_value</string>
-	</dict>
 </dict>
 </plist>
