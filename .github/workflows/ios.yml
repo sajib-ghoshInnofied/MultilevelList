@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-    build:
+    test:
       name: Swift ${{ matrix.swift }} on ${{ matrix.os }}
       strategy:
         matrix:
@@ -19,8 +19,6 @@ jobs:
           with:
            swift-version: ${{ matrix.swift }}
         - uses: actions/checkout@v4
-        - name: Build
-          run: swift build -v
         - name: Run tests
           run: swift test
     swiftlint:
