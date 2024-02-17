@@ -26,12 +26,6 @@ class PlistHeaderCell: UITableViewCell {
         self.selectionStyle = .none
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     func cellFillWithData(section: Section) {
         imgExpandCollapse.image = section.isOpened ? UIImage(named: "chevronDown") : UIImage(named: "chevronRight")
         imgExpandCollapseLeading.constant = CGFloat(section.level) * 8.0
@@ -43,6 +37,4 @@ class PlistHeaderCell: UITableViewCell {
     @IBAction func didTapOnHeaderButton(_ sender: UIButton) {
         delegate?.plistHeaderTappend(location: location)
     }
-    
-
 }

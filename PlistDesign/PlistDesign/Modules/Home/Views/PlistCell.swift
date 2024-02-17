@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 class PlistCell: UITableViewCell {
         
     @IBOutlet weak var imgExpandCollapse: UIImageView!
@@ -23,11 +21,6 @@ class PlistCell: UITableViewCell {
         self.selectionStyle = .none
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
-    }
-    
     func cellFillWithData(section: Section) {
         imgExpandCollapse.image = section.isOpened ? UIImage(named: "chevronDown") : UIImage(named: "chevronRight")
         imgExpandCollapseLeading.constant = CGFloat(section.level) * 8.0
@@ -36,10 +29,9 @@ class PlistCell: UITableViewCell {
         if !section.isCollapsible {
             imgExpandCollapse.isHidden = true
             lblCountItem.text = section.valueString
-        }else{
+        } else {
             imgExpandCollapse.isHidden = false
             lblCountItem.text = section.itemCount
         }
     }
 }
-

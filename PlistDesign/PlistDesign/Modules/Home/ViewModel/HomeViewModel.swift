@@ -13,7 +13,7 @@ class HomeViewModel {
         self.apiDataManager = apiDataManager
     }
 
-    func fetchPlist() async -> (PlistRootModel?,CustomError?) {
+    func fetchPlist() async -> (PlistRootModel?, CustomError?) {
         return await apiDataManager.fetchPlistData()
     }
     
@@ -46,8 +46,8 @@ class HomeViewModel {
     
     func getAllChildItemsFor(parent: Section) -> NSMutableArray {
         let childItems = NSMutableArray()
-        //childItems.add(parent)
-        //parent.isOpened = true
+        // childItems.add(parent)
+        // parent.isOpened = true
         for section in parent.sections {
             section.isOpened = true
             childItems.add(section)
@@ -65,13 +65,13 @@ class HomeViewModel {
             if section.key.contains(searchText) || section.valueString.contains(searchText) {
                 childItems.addObjects(from: child as? [Any] ?? [])
                 return childItems
-            }else if !section.isCollapsible {
+            } else if !section.isCollapsible {
                 print("Go back....\(section.key)")
                 child.removeAllObjects()
                 childItems.removeAllObjects()
                 collapseChild(childItems: childItems as? [Section] ?? [])
                 return childItems
-            }else{
+            } else {
                 child.addObjects(from: getChildItemsForSearch(parent: section, searchText: searchText) as? [Any] ?? [])
             }
             childItems.addObjects(from: child as? [Any] ?? [])
@@ -79,7 +79,7 @@ class HomeViewModel {
         return childItems
     }
     
-    func collapseChild(childItems:[Section]) {
+    func collapseChild(childItems: [Section]) {
         for childItem in childItems {
             childItem.isOpened = false
         }
@@ -89,11 +89,11 @@ class HomeViewModel {
         var sections = [Section]()
         if let plist = plist {
             if let plistDict = convertPlistToDictionary(plist) {
-                //print(plistDict)
+                // print(plistDict)
                 var section: Section?
-                for (key,value) in plistDict {
+                for (key, value) in plistDict {
                     section = Section(isCollapsible: true, isOpened: false, key: key, level: 1, value: value)
-                    convertDictToSections(value as? [String : Any] ?? [:], parentNode: section, level: 1)
+                    convertDictToSections(value as? [String: Any] ?? [:], parentNode: section, level: 1)
                 }
                 if let section {
                     sections.append(section)
@@ -103,27 +103,27 @@ class HomeViewModel {
         return sections
     }
     
-    func convertDictToSections(_ dict: [String:Any], parentNode: Section?, level: Int) {
-        for (key,value) in dict {
+    func convertDictToSections(_ dict: [String: Any], parentNode: Section?, level: Int) {
+        for (key, value) in dict {
             let currentNode = Section(isCollapsible: false, isOpened: false, key: key, level: level + 1, value: value)
-            if let dictionary1 = value as? [String:Any] {
+            if let dictionary1 = value as? [String: Any] {
                 currentNode.isCollapsible = true
-                for (key,value) in dictionary1 {
+                for (key, value) in dictionary1 {
                     let currentNode1 = Section(isCollapsible: false, isOpened: false, key: key, level: level + 2, value: value)
-                    if let dictionary2 = value as? [String:Any] {
+                    if let dictionary2 = value as? [String: Any] {
                         currentNode1.isCollapsible = true
-                        for (key,value) in dictionary2 {
-                            //Bottom most
+                        for (key, value) in dictionary2 {
+                            // Bottom most
                             let currentNode2 = Section(isCollapsible: false, isOpened: false, key: key, level: level + 3, value: value)
                             currentNode1.sections.append(currentNode2)
                         }
-                    }else if let arr = value as? [[String:Any]] {
+                    } else if let arr = value as? [[String: Any]] {
                         currentNode1.isCollapsible = true
                         var count = 0
                         for dict2 in arr {
                             let item = Section(isCollapsible: true, isOpened: false, key: "Item \(count)", level: level + 3, value: dict2)
-                            for (key,value) in dict2 {
-                                //Bottom most
+                            for (key, value) in dict2 {
+                                // Bottom most
                                 let currentNode3 = Section(isCollapsible: false, isOpened: false, key: key, level: level + 4, value: value)
                                 item.sections.append(currentNode3)
                             }
@@ -138,16 +138,15 @@ class HomeViewModel {
         }
     }
     
-
     func convertPlistToDictionary(_ plist: PlistRootModel) -> [String: Any]? {
         var dict: [String: Any]?
-        if let jsonData = try? JSONEncoder().encode(plist){
+        if let jsonData = try? JSONEncoder().encode(plist) {
             let jsonString = String(data: jsonData, encoding: .utf8) ?? ""
             if let data = jsonString.data(using: .utf8) {
                 let anyResult = try? JSONSerialization.jsonObject(with: data, options: [])
                 dict = anyResult as? [String: Any]
             }
-        }else{
+        } else {
             fatalError("Could not convert plist to dictionary")
         }
         return dict

@@ -69,14 +69,14 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
             let childItems = sectionDictionary[section]
             if let items = childItems as? [Section] {
                 return items.count
-            }else{
+            } else {
                 return 0
             }
-        }else{
+        } else {
             let childItems = sectionDictionaryForSearch[section]
             if let items = childItems as? [Section] {
                 return items.count
-            }else{
+            } else {
                 return 0
             }
         }
@@ -88,7 +88,7 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
         var childItems: Any?
         if !isSearching {
             childItems = sectionDictionary[indexPath.section]
-        }else{
+        } else {
             childItems = sectionDictionaryForSearch[indexPath.section]
         }
         if let items = childItems as? [Section] {
@@ -104,7 +104,7 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
         headerView?.location = section
         if !isSearching {
             headerView?.cellFillWithData(section: sections[section])
-        }else{
+        } else {
             headerView?.cellFillWithData(section: sections[section])
 //            let childItems = sectionDictionaryForSearch[section]
 //            if let items = childItems as? [Section] {
@@ -122,7 +122,7 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
                 let item = items[indexPath.row]
                 plistItemTapped(item: item, location: indexPath)
             }
-        }else{
+        } else {
             if let items = childItems as? [Section] {
                 let item = items[indexPath.row]
                 plistItemTappedForSearch(item: item, location: indexPath)
@@ -141,7 +141,7 @@ extension HomeVC: PlistHeaderCellProtocol {
         let item = sections[location]
         if !isSearching {
             plistItemTapped(item: item, location: IndexPath(row: NSNotFound, section: location))
-        }else{
+        } else {
             plistItemTappedForSearch(item: item, location: IndexPath(row: NSNotFound, section: location))
             if item.isOpened {
                 executeSearch(searchText: searchText)
@@ -156,11 +156,11 @@ extension HomeVC {
     func plistItemTapped(item: Section, location: IndexPath) {
         if !item.sections.isEmpty {
             if item.isOpened {
-                //Remove child
+                // Remove child
                 item.isOpened = false
                 collapseExpandedSections(parent: item)
-            }else{
-                //Insert will happen in dict
+            } else {
+                // Insert will happen in dict
                 item.isOpened = true
             }
         }
@@ -170,18 +170,18 @@ extension HomeVC {
             let expandedChilds = viewModel.getChildItemsFor(parent: parentItem)
             sectionDictionary[location.section] = expandedChilds
         }
-        //self.tableView.reloadData()
+        // self.tableView.reloadData()
         UIView.transition(with: tableView, duration: 0.2, options: .transitionCrossDissolve, animations: {self.tableView.reloadData()}, completion: nil)
     }
     
     func plistItemTappedForSearch(item: Section, location: IndexPath) {
         if !item.sections.isEmpty {
             if item.isOpened {
-                //Remove child
+                // Remove child
                 item.isOpened = false
                 collapseExpandedSections(parent: item)
-            }else{
-                //Insert will happen in dict
+            } else {
+                // Insert will happen in dict
                 item.isOpened = true
             }
         }
@@ -191,16 +191,16 @@ extension HomeVC {
             let expandedChilds = viewModel.getChildItemsFor(parent: parentItem)
             sectionDictionaryForSearch[location.section] = expandedChilds
         }
-        //self.tableView.reloadData()
+        // self.tableView.reloadData()
         UIView.transition(with: tableView, duration: 0.2, options: .transitionCrossDissolve, animations: {self.tableView.reloadData()}, completion: nil)
     }
     
     func collapseExpandedSections(parent: Section) {
         if !parent.sections.isEmpty {
             for section in parent.sections {
-                if (!section.isOpened) {
+                if !section.isOpened {
                     continue
-                }else{
+                } else {
                     section.isOpened = false
                     collapseExpandedSections(parent: section)
                 }
@@ -209,7 +209,7 @@ extension HomeVC {
     }
 }
 
-extension HomeVC: UISearchBarDelegate{
+extension HomeVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         isSearching = true
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(HomeVC.performSearch), object: nil)
@@ -224,20 +224,20 @@ extension HomeVC: UISearchBarDelegate{
             print("performSearch:\(isSearching)")
             sectionDictionaryForSearch.removeAllObjects()
             reloadData()
-        }else{
+        } else {
             print("performSearch:\(searchText)")
             self.searchText = searchText
             executeSearch(searchText: searchText)
         }
     }
     
-    func executeSearch(searchText:String) {
+    func executeSearch(searchText: String) {
         sectionDictionaryForSearch.removeAllObjects()
         let childItems = viewModel.getAllChildItemsFor(parent: sections[0])
         if let items = childItems as? [Section] {
-            let filterItems = items.filter{$0.key.contains(searchText) || $0.valueString.contains(searchText) || String(describing: $0.value).contains(searchText)}
-            //filterItems.insert(sections[0], at: 0)
-            //sectionDictionaryForSearch[0] = viewModel.getChildItemsForSearch(parent: sections[0], searchText: searchText)
+            let filterItems = items.filter {$0.key.contains(searchText) || $0.valueString.contains(searchText) || String(describing: $0.value).contains(searchText)}
+            // filterItems.insert(sections[0], at: 0)
+            // sectionDictionaryForSearch[0] = viewModel.getChildItemsForSearch(parent: sections[0], searchText: searchText)
             sectionDictionaryForSearch[0] = filterItems
             sections[0].isOpened = true
             tableView.reloadData()

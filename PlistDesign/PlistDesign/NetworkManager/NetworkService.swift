@@ -6,12 +6,12 @@
 //
 
 import Foundation
-protocol NetworkHandler{
-    func fetchData<T:Decodable>(for: T.Type, from url: String) async throws ->T
+protocol NetworkHandler {
+    func fetchData<T: Decodable>(for: T.Type, from url: String) async throws -> T
 }
 class NetworkService: NetworkHandler {
     
-    func fetchData<T : Decodable>(for: T.Type, from url: String) async throws -> T {
+    func fetchData<T: Decodable>(for: T.Type, from url: String) async throws -> T {
         
         guard let url = URL(string: url) else {
             throw CustomError.invalidURL
@@ -19,22 +19,20 @@ class NetworkService: NetworkHandler {
         let config = URLSessionConfiguration.default
         config.requestCachePolicy = .reloadIgnoringLocalCacheData
         let session = URLSession(configuration: config)
-        let (data,response) = try await session.data(from: url)
-        do{
+        let (data, response) = try await session.data(from: url)
+        do {
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
                 throw CustomError.invalidResponse
             }
-            do{
+            do {
                 let decoder = PropertyListDecoder()
                 return try decoder.decode(T.self, from: data)
-            }catch{
+            } catch {
                 throw CustomError.invalidData
             }
-        } catch(let error) {
+        } catch {
             throw error
         }
         
     }
 }
-
-

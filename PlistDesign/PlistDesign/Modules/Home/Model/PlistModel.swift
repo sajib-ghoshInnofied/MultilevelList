@@ -7,81 +7,81 @@
 
 import Foundation
 
-struct PlistRootModel : Codable {
+struct PlistRootModel: Codable {
     var version: Version?
-    private enum CodingKeys : String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
       case version = "4.64.0"
     }
 }
-struct Version : Codable {
+struct Version: Codable {
     var shared: Shared?
     var support: Support?
     var extensionConfiguration: ExtensionConfiguration?
-    private enum CodingKeys : String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
       case shared = "Shared"
       case support = "Support"
       case extensionConfiguration = "ExtensionConfiguration"
     }
 }
 
-struct ExtensionConfiguration : Codable {
+struct ExtensionConfiguration: Codable {
     var extensionToday: Int?
-    private enum CodingKeys : String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
       case extensionToday = "ExtensionTodayViewMinRefreshIntervalSeconds"
     }
 }
 
-struct Support : Codable {
+struct Support: Codable {
     var liveChat: LiveChat?
-    private enum CodingKeys : String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
       case liveChat = "LiveChat"
     }
 }
 
-struct LiveChat : Codable {
+struct LiveChat: Codable {
     var welcomeMessage: String?
-    private enum CodingKeys : String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
       case welcomeMessage = "WelcomeMessage"
     }
 }
 
-struct Shared : Codable {
+struct Shared: Codable {
     var appVersions: [AppVersion]?
     var features: [Feature]?
-    private enum CodingKeys : String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
       case appVersions = "ApplicationVersionManagement"
       case features = "Features"
     }
 }
 
-struct AppVersion : Codable {
+struct AppVersion: Codable {
     var latestVersion: String?
     var appstoreURL: String?
     var appstroreUpgradeMessage: LatestAppstoreVersionUpgradeMessage?
-    private enum CodingKeys : String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
       case latestVersion = "LatestVersionInAppstore"
       case appstoreURL = "AppstoreURL"
       case appstroreUpgradeMessage = "LatestAppstoreVersionUpgradeMessage"
     }
 }
 
-struct LatestAppstoreVersionUpgradeMessage : Codable {
+struct LatestAppstoreVersionUpgradeMessage: Codable {
     var title: String?
     var message: String?
-    private enum CodingKeys : String, CodingKey {
-      case title = "title"
-      case message = "message"
+    private enum CodingKeys: String, CodingKey {
+      case title
+      case message
     }
 }
-struct Feature : Codable {
+
+struct Feature: Codable {
     var name: String?
     var enabled: Bool?
-    private enum CodingKeys : String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
       case name = "Name"
       case enabled = "Enabled"
     }
 }
-
 
 class Section {
     var isCollapsible: Bool
@@ -114,9 +114,9 @@ class Section {
             return "Int"
         case is String:
             return "String"
-        case is [String:Any]:
+        case is [String: Any]:
             return "Dictionary"
-        case is [[String:Any]]:
+        case is [[String: Any]]:
             return "Array"
         default:
             return "Unknown"
@@ -125,10 +125,10 @@ class Section {
     
     func getItemCount(value: Any) -> String {
         var count = ""
-        if let val = value as? [String:Any] {
+        if let val = value as? [String: Any] {
             let item = (val.count > 1) ? "items" : "item"
             count = "(" + "\(val.count)" + " \(item)" + ")"
-        }else if let val = value as? [[String:Any]] {
+        } else if let val = value as? [[String: Any]] {
             let item = (val.count > 1) ? "items" : "item"
             count = "(" + "\(val.count)" + " \(item)" + ")"
         }
@@ -139,11 +139,11 @@ class Section {
         var str = ""
         if let val = value as? Bool {
             (val == true) ? (str = "YES") : (str = "NO")
-        }else if let val = value as? Int {
+        } else if let val = value as? Int {
             str = String(val)
-        }else if let val = value as? Double {
+        } else if let val = value as? Double {
             str = String(val)
-        }else{
+        } else {
             str = value as? String ?? ""
         }
         return str
