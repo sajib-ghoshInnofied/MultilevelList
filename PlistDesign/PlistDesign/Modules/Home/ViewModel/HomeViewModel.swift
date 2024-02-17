@@ -38,7 +38,7 @@ class HomeViewModel {
         for section in parent.sections {
             childItems.add(section)
             if section.isOpened {
-                childItems.addObjects(from: getChildItemsFor(parent: section) as! [Any])
+                childItems.addObjects(from: getChildItemsFor(parent: section) as? [Any] ?? [])
             }
         }
         return childItems
@@ -51,7 +51,7 @@ class HomeViewModel {
         for section in parent.sections {
             section.isOpened = true
             childItems.add(section)
-            childItems.addObjects(from: getAllChildItemsFor(parent: section) as! [Any])
+            childItems.addObjects(from: getAllChildItemsFor(parent: section) as? [Any] ?? [])
         }
         return childItems
     }
@@ -63,18 +63,18 @@ class HomeViewModel {
             section.isOpened = true
             child.add(section)
             if section.key.contains(searchText) || section.valueString.contains(searchText) {
-                childItems.addObjects(from: child as! [Any])
+                childItems.addObjects(from: child as? [Any] ?? [])
                 return childItems
             }else if !section.isCollapsible {
                 print("Go back....\(section.key)")
                 child.removeAllObjects()
                 childItems.removeAllObjects()
-                collapseChild(childItems: childItems as! [Section])
+                collapseChild(childItems: childItems as? [Section] ?? [])
                 return childItems
             }else{
-                child.addObjects(from: getChildItemsForSearch(parent: section, searchText: searchText) as! [Any])
+                child.addObjects(from: getChildItemsForSearch(parent: section, searchText: searchText) as? [Any] ?? [])
             }
-            childItems.addObjects(from: child as! [Any])
+            childItems.addObjects(from: child as? [Any] ?? [])
         }
         return childItems
     }
@@ -93,7 +93,7 @@ class HomeViewModel {
                 var section: Section!
                 for (key,value) in plistDict {
                     section = Section(isCollapsible: true, isOpened: false, key: key, level: 1, value: value)
-                    convertDictToSections(value as! [String : Any], parentNode: section, level: 1)
+                    convertDictToSections(value as? [String : Any] ?? [:], parentNode: section, level: 1)
                 }
                 sections.append(section)
             }
@@ -140,7 +140,7 @@ class HomeViewModel {
     func convertPlistToDictionary(_ plist: PlistRootModel) -> [String: Any]? {
         var dict: [String: Any]?
         if let jsonData = try? JSONEncoder().encode(plist){
-            let jsonString = String(data: jsonData, encoding: .utf8)!
+            let jsonString = String(data: jsonData, encoding: .utf8) ?? ""
             if let data = jsonString.data(using: .utf8) {
                 let anyResult = try? JSONSerialization.jsonObject(with: data, options: [])
                 dict = anyResult as? [String: Any]

@@ -156,7 +156,7 @@ extension HomeVC: PlistHeaderCellProtocol {
 extension HomeVC {
     
     func plistItemTapped(item: Section, location: IndexPath) {
-        if item.sections.count > 0 {
+        if !item.sections.isEmpty {
             if item.isOpened {
                 //Remove child
                 item.isOpened = false
@@ -177,7 +177,7 @@ extension HomeVC {
     }
     
     func plistItemTappedForSearch(item: Section, location: IndexPath) {
-        if item.sections.count > 0 {
+        if !item.sections.isEmpty {
             if item.isOpened {
                 //Remove child
                 item.isOpened = false
@@ -198,7 +198,7 @@ extension HomeVC {
     }
     
     func collapseExpandedSections(parent: Section) {
-        if parent.sections.count > 0 {
+        if !parent.sections.isEmpty {
             for section in parent.sections {
                 if (!section.isOpened) {
                     continue
