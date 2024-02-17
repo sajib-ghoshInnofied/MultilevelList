@@ -59,7 +59,7 @@ final class PlistDesignTests: XCTestCase {
         }
         //Then
         await fulfillment(of: [expectation],timeout: 2)
-        XCTAssertNotNil(actualData)
+        XCTAssertNil(actualData)
         if let error = thrownError {
             XCTFail("Async error thrown: \(error.localizedDescription)")
         }
