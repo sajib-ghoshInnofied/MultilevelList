@@ -6,13 +6,13 @@
 //
 
 import Foundation
-enum CustomError: Error{
+enum CustomError: Error {
     case invalidURL
     case invalidResponse
     case invalidData
     case mockError
     var description: String {
-        switch self{
+        switch self {
         case .invalidURL:
             return "Invalid URL"
         case .invalidResponse:

@@ -6,8 +6,8 @@
 //
 
 import Foundation
-protocol HomeAPIDataManagerProtocol{
-    func fetchPlistData() async -> (PlistRootModel?,CustomError?)
+protocol HomeAPIDataManagerProtocol {
+    func fetchPlistData() async -> (PlistRootModel?, CustomError?)
 }
 class HomeAPIDataManager: HomeAPIDataManagerProtocol {
 
@@ -15,14 +15,14 @@ class HomeAPIDataManager: HomeAPIDataManagerProtocol {
     init(networkService: NetworkHandler) {
         self.networkService = networkService
     }
-    func fetchPlistData() async -> (PlistRootModel?,CustomError?) {
+    func fetchPlistData() async -> (PlistRootModel?, CustomError?) {
         var plistModel: PlistRootModel?
         var plistError: CustomError?
-        do{
+        do {
             plistModel = try await networkService?.fetchData(for: PlistRootModel.self, from: APIConstant.shared.plistURL)
-        } catch(let error) {
+        } catch {
             plistError = error as? CustomError
         }
-        return (plistModel,plistError)
+        return (plistModel, plistError)
     }
 }

@@ -6,9 +6,9 @@
 //
 
 import Foundation
-class APIConstant{
+class APIConstant {
     static let shared = APIConstant()
-    private init(){
+    private init() {
     }
     let plistURL = "https://appconfig-be7f37.firebaseapp.com/anzapp/plist/dwic_general_configuration.plist"
 }

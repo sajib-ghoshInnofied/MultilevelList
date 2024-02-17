@@ -41,12 +41,10 @@ class HomeVC: UIViewController {
         tableView.reloadData()
     }
     
-    
-
     func getPlist() async {
         let apiDataManager = HomeAPIDataManager(networkService: NetworkService())
         viewModel = HomeViewModel(apiDataManager: apiDataManager)
-        let (plist,error) = await viewModel.fetchPlist()
+        let (plist, error) = await viewModel.fetchPlist()
         plistModel = plist
         if let error = error {
             print(error.description)
@@ -60,7 +58,7 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         if !isSearching {
             return sections.count
-        }else{
+        } else {
             return sections.count
         }
     }
@@ -237,7 +235,7 @@ extension HomeVC: UISearchBarDelegate{
         sectionDictionaryForSearch.removeAllObjects()
         let childItems = viewModel.getAllChildItemsFor(parent: sections[0])
         if let items = childItems as? [Section] {
-            var filterItems = items.filter{$0.key.contains(searchText) || $0.valueString.contains(searchText) || String(describing: $0.value).contains(searchText)}
+            let filterItems = items.filter{$0.key.contains(searchText) || $0.valueString.contains(searchText) || String(describing: $0.value).contains(searchText)}
             //filterItems.insert(sections[0], at: 0)
             //sectionDictionaryForSearch[0] = viewModel.getChildItemsForSearch(parent: sections[0], searchText: searchText)
             sectionDictionaryForSearch[0] = filterItems
