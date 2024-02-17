@@ -9,7 +9,7 @@ on:
 jobs:
     swiftlint:
       name: Lint code with SwiftLint
-      runs-on: macos-13.0
+      runs-on: macos-latest
 
       steps:
         - name: Checkout
