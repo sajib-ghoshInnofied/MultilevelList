@@ -46,7 +46,7 @@ class HomeVC: UIViewController {
     func getPlist() async {
         let apiDataManager = HomeAPIDataManager(networkService: NetworkService())
         viewModel = HomeViewModel(apiDataManager: apiDataManager)
-        let (plist,error) = await viewModel!.fetchPlist()
+        let (plist,error) = await viewModel.fetchPlist()
         plistModel = plist
         if let error = error {
             print(error.description)
@@ -86,7 +86,7 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PlistCell") as! PlistCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PlistCell") as? PlistCell
         var childItems: Any?
         if !isSearching {
             childItems = sectionDictionary[indexPath.section]
@@ -95,19 +95,19 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
         }
         if let items = childItems as? [Section] {
             let item = items[indexPath.row]
-            cell.cellFillWithData(section: item)
+            cell?.cellFillWithData(section: item)
         }
-        return cell
+        return cell ?? UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = tableView.dequeueReusableCell(withIdentifier: "PlistHeaderCell") as! PlistHeaderCell
-        headerView.delegate = self
-        headerView.location = section
+        let headerView = tableView.dequeueReusableCell(withIdentifier: "PlistHeaderCell") as? PlistHeaderCell
+        headerView?.delegate = self
+        headerView?.location = section
         if !isSearching {
-            headerView.cellFillWithData(section: sections[section])
+            headerView?.cellFillWithData(section: sections[section])
         }else{
-            headerView.cellFillWithData(section: sections[section])
+            headerView?.cellFillWithData(section: sections[section])
 //            let childItems = sectionDictionaryForSearch[section]
 //            if let items = childItems as? [Section] {
 //                headerView.cellFillWithData(section: items[section])
