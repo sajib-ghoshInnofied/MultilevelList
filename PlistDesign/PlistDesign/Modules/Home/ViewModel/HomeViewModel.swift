@@ -90,12 +90,14 @@ class HomeViewModel {
         if let plist = plist {
             if let plistDict = convertPlistToDictionary(plist) {
                 //print(plistDict)
-                var section: Section!
+                var section: Section?
                 for (key,value) in plistDict {
                     section = Section(isCollapsible: true, isOpened: false, key: key, level: 1, value: value)
                     convertDictToSections(value as? [String : Any] ?? [:], parentNode: section, level: 1)
                 }
-                sections.append(section)
+                if let section {
+                    sections.append(section)
+                }
             }
         }
         return sections
