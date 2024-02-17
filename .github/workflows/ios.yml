@@ -15,10 +15,8 @@ jobs:
           swift: ["5.8"]
       runs-on: ${{ matrix.os }}
       steps:
-        - uses: swift-actions/setup-swift@65540b95f51493d65f5e59e97dcef9629ddf11bf
-          with:
-           swift-version: ${{ matrix.swift }}
-        - uses: actions/checkout@v4
+        - name: Checkout
+        - uses: actions/checkout@v3
         - name: Run tests
           run: swift test
     swiftlint:
