@@ -20,7 +20,7 @@ jobs:
            swift-version: ${{ matrix.swift }}
         - uses: actions/checkout@v4
         - name: Build
-          run: swift build
+          run: swift build -v
         - name: Run tests
           run: swift test
     swiftlint:
